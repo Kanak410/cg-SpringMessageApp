@@ -1,6 +1,8 @@
 package com.bridgelabz.kanak.springmessageapp.controller;
 
+
 import com.bridgelabz.kanak.springmessageapp.dto.User;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,10 +22,18 @@ public class HelloController {
         return "Hello "+name+" from BridgeLabz";
     }
 
+
     // Post method
     @PostMapping("/hello/post")
     public String sayHelloUsingPost(@RequestBody User user){
         return "Hello "+user.getFirst_name()+" "+user.getLast_name()+" from BridgeLabz";
+    }
+
+
+
+    @PutMapping("/hello/put/{firstName}")
+    public String sayHello(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
     }
 
 
