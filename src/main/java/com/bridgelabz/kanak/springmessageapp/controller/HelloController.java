@@ -1,9 +1,7 @@
 package com.bridgelabz.kanak.springmessageapp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.bridgelabz.kanak.springmessageapp.dto.User;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
@@ -21,5 +19,12 @@ public class HelloController {
     public String sayHelloUsingPathVariable(@PathVariable String name){
         return "Hello "+name+" from BridgeLabz";
     }
+
+    // Post method
+    @PostMapping("/hello/post")
+    public String sayHelloUsingPost(@RequestBody User user){
+        return "Hello "+user.getFirst_name()+" "+user.getLast_name()+" from BridgeLabz";
+    }
+
 
 }
